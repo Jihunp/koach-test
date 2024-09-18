@@ -13,6 +13,9 @@ This project provides a backend API for a user management system. This allows fo
 - dotenv: Library for managing environment variables
 - swaggerJsDoc: Library for reading JSDoc-annotated source code
 - swagger-ui: UI Library to help visualze and interact with API resources
+- jest: JavaScript testing framework that focuses on simplicity and supports unit testing
+- supertest: Library for testing Node applications
+- mongodb-memory-server: In-memory MongoDB server used for testing
 
 ## Prerequisites
 
