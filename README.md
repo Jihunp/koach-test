@@ -11,7 +11,8 @@ This project provides a backend API for a user management system. This allows fo
 - bcryptjs: Library for hashing passwords
 - jsonwebtoken: Library for creating and verifying JSON Web Tokens
 - dotenv: Library for managing environment variables
-- Prerequisites
+- swaggerJsDoc: Library for reading JSDoc-annotated source code
+- swagger-ui: UI Library to help visualze and interact with API resources
 
 ## Prerequisites
 
@@ -25,3 +26,8 @@ This project provides a backend API for a user management system. This allows fo
 3. Set up Environment variables:
    - Port, JWT, and MONGO URI
 4. Start server with npm start
+
+
+### Checkout API documentation
+1. After starting the server with npm start
+2. type in http://localhost:5000/api-docs/
