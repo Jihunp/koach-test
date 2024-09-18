@@ -28,6 +28,7 @@ This project provides a backend API for a user management system. This allows fo
 2. npm install - the dependencies
 3. Set up Environment variables:
    - Port, JWT, and MONGO URI
+   - You can generate a jwt token by running the command: node generateSecret.js
 4. Start server with npm start
 
 
