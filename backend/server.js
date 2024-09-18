@@ -13,20 +13,22 @@ const app = express();
 app.use(express.json());  // For parsing JSON bodies
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log('MongoDB connected');
+if (process.env.NODE_ENV !== 'test') {
+  mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+      console.log('MongoDB connected');
 
-    // Start server only after successful connection to MongoDB
-    const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
+      // Start server only after successful connection to MongoDB
+      const PORT = process.env.PORT || 5000;
+      app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+      });
+    })
+    .catch((err) => {
+      console.error('Failed to connect to MongoDB', err);
+      process.exit(1); // Exit the process with a failure code
     });
-  })
-  .catch((err) => {
-    console.error('Failed to connect to MongoDB', err);
-    process.exit(1); // Exit the process with a failure code
-  });
+}
 
 // Swagger definition
 const swaggerOptions = {
@@ -61,6 +63,8 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
+// Testing
+module.exports = app; // Export app for testing
 
 // Routes
 app.use('/api/users', userRoutes);
