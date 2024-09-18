@@ -26,6 +26,7 @@ const registerUser = async (req, res) => {
   } else {
     res.status(400).json({ message: 'Invalid user data' });
   }
+  console.log(req.body); // testing registerUser. DELETE this later, it exposes client password when registering
 };
 
 // @desc Authenticate user and get token
